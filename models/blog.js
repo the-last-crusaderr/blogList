@@ -1,8 +1,4 @@
 const mongoose = require('mongoose')
-const config = require('../utils/config')
-
-const mongoUrl = config.mongodbUrl
-mongoose.connect(mongoUrl).then( () => console.log('The application is connected to database.')  )
 
 
 const blogSchema = new mongoose.Schema({

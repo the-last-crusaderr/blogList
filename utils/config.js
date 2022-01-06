@@ -1,8 +1,9 @@
-require('dotenv').config()
+require('dotenv').config() 
 
 
-const mongodbUrl = process.env.mongodbUrl
 const PORT = process.env.PORT
+const mongodbUrl = process.env.mongodbUrl
+
 
 
 exports.module = {mongodbUrl,PORT}
