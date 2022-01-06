@@ -1,24 +1,16 @@
 const http = require('http')
 const express = require('express')
 const app = express()
+const logger = require('./utils/logger')
 const cors = require('cors')
-const mongoose = require('mongoose')
+const Blog = require('./models/blog')
 
 
-const mongoUrl = 'mongodb+srv://crusaderr:Crusaderr01@cluster0.sifef.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-mongoose.connect(mongoUrl).then( res => console.log('The application is connected to databse.')  )
 
 app.use(cors())
 app.use(express.json())
 
-const blogSchema = new mongoose.Schema({
-  title: String,
-  author: String,
-  url: String,
-  likes: Number
-})
 
-const Blog = mongoose.model('Blog', blogSchema)
 
 
 app.get('/api/blogs', (request, response) => {
@@ -41,5 +33,5 @@ app.post('/api/blogs', (request, response) => {
 
 const PORT = 3003
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+  logger.info(`Server running on port ${PORT}`)
 })

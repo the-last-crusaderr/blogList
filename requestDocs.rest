@@ -6,8 +6,8 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-    "title": "The far from the north",
-  "author": "Steven purple",
+    "title": "Game of survival",
+  "author": "Brian volt",
   "url": "Not on internet",
-  "likes": "1234"
+  "likes": "134"
 }
