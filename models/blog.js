@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const mongoUrl = 'mongodb+srv://crusaderr:Crusaderr01@cluster0.sifef.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoUrl = config.mongodbUrl
 mongoose.connect(mongoUrl).then( () => console.log('The application is connected to database.')  )
 
 
