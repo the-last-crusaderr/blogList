@@ -4,6 +4,13 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 
+
+const mongoUrl = 'mongodb+srv://crusaderr:Crusaderr01@cluster0.sifef.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(mongoUrl).then( res => console.log('The application is connected to databse.')  )
+
+app.use(cors())
+app.use(express.json())
+
 const blogSchema = new mongoose.Schema({
   title: String,
   author: String,
@@ -13,11 +20,6 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema)
 
-const mongoUrl = 'mongodb://localhost/bloglist'
-mongoose.connect(mongoUrl)
-
-app.use(cors())
-app.use(express.json())
 
 app.get('/api/blogs', (request, response) => {
   Blog
