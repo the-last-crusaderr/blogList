@@ -1,6 +1,8 @@
 const dummy = require('../utils/list_helper').module.dummy
 const totalLikes = require('../utils/list_helper').module.totalLikes
 const favouriteBlog = require('../utils/list_helper').module.favouriteBlog
+const mostBlogs = require('../utils/list_helper').module.mostBlogs
+const mostLikes = require('../utils/list_helper').module.mostLikes
 
 
 
@@ -111,8 +113,36 @@ describe('the favourite blogs returns blog of highest likes',() => {
     })
 
 
+})
+
+
+describe('the function returns object consists of author and blogs having most no. of blogs',() => {
+
+    test('blog list of length one',() => {
+        expect(mostBlogs(listOfOneBlogs)).toEqual({author:'Michael Chan',blogs:1})
+    })
+
+    test('blog list of random length',() => {
+        expect(mostBlogs(blogs)).toEqual({author:'Robert C. Martin',blogs:3})
+    })
+
+
 
 })
 
 
 
+describe('the function returns object consists of author name and total likes',() => {
+
+    test('blog list of length one',() => {
+        expect(mostLikes(listOfOneBlogs)).toEqual({author:'Michael Chan',likes:7})
+    })
+
+    test('blog list of random length',() => {
+        expect(mostLikes(blogs)).toEqual({author:'Edsger W. Dijkstra',likes:17})
+    })
+
+    
+
+
+})

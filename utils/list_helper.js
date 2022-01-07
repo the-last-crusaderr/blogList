@@ -31,8 +31,69 @@ const favouriteBlog = (blogs) => {
 
 
 
+const mostBlogs = (blogs) => {
 
-exports.module = {dummy,totalLikes,favouriteBlog}
+    let dict = {}
+
+    for(let i=0;i<blogs.length;i++){
+
+        if(dict[blogs[i].author] === undefined)
+            dict[blogs[i].author] = 1;
+        else
+            dict[blogs[i].author] += 1
+
+    }
+
+    let max = 0
+    let reqName = ''
+    for(let keys in dict){
+        if (dict[keys] > max){
+        max = dict[keys]
+        reqName = keys
+    }
+    }
+
+    return( {
+        author: reqName, 
+        blogs: max
+    })
+
+}
+
+
+const mostLikes = (blogs) => {
+
+    let dict = {}
+
+    for(let i=0;i<blogs.length;i++){
+
+        if(dict[blogs[i].author] === undefined)
+            dict[blogs[i].author] = blogs[i].likes;
+        else
+            dict[blogs[i].author] += blogs[i].likes
+    }
+
+    let max = 0
+    let reqName = ''
+    for(let keys in dict){
+        if (dict[keys] > max){
+        max = dict[keys]
+        reqName = keys
+    }
+    }
+
+    return( {
+        author: reqName, 
+        likes: max
+    })
+
+
+}
+
+
+
+
+exports.module = {dummy,totalLikes,favouriteBlog,mostBlogs,mostLikes}
 
 
 
