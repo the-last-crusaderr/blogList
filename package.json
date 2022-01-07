@@ -4,8 +4,9 @@
   "description": "the application to store sources of blogs",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
-    "dev": "nodemon index.js"
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test jest --verbose --run-in-band"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
   "devDependencies": {
     "eslint": "^8.6.0",
     "jest": "^27.4.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
   },
   "jest": {
     "testEnvironment": "node"
