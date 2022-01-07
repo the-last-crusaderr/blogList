@@ -63,6 +63,17 @@ test ('when the post object has no like properties',async () => {
 },1000000)
 
 
+test ('when the title and url are missing from the post request', async () => {
+
+    const newBlog = {author:'The Last Crusaderr',like:32 }
+    const result = await api.post('/api/blogs').send(newBlog)
+
+    expect(result.statusCode).toBe(400)
+
+
+})
+
+
 
 afterAll(() => {
     mongoose.connection.close()
