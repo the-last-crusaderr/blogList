@@ -42,7 +42,8 @@ test ('testing for post request in the api',async () => {
     const initialCount = await api.get('/api/blogs')
 
     
-    await api.post('/api/blogs').send(newBlog).expect(200).expect('Content-Type',/application\/json/)     
+    await api.post('/api/blogs').send(newBlog).expect(200).expect('Content-Type',/application\/json/)   
+    
 
     const laterCount = await api.get('/api/blogs')
 
@@ -50,6 +51,16 @@ test ('testing for post request in the api',async () => {
 
 },1000000)
 
+
+test ('when the post object has no like properties',async () => {
+
+    const newBlog = { title: 'Finding meaning in meaninglessness', author:'The Last Crusaderr',url:'Not on internet' }
+    const result = await api.post('/api/blogs').send(newBlog)
+
+    expect(result.body.likes).toBe(0)
+
+
+},1000000)
 
 
 
