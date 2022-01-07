@@ -6,7 +6,7 @@ POST http://localhost:3001/api/blogs
 Content-Type: application/json
 
 {
-    "title": "Game of survival",
+    "title": "Game of Death",
   "author": "Brian volt",
   "url": "Not on internet",
   "likes": "134"

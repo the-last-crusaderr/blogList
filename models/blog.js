@@ -9,6 +9,8 @@ const blogSchema = new mongoose.Schema({
 })
 
 
+/*
+
 blogSchema.set('toJSON',{
     transform: (doc,retObj) => {
 
@@ -18,7 +20,7 @@ blogSchema.set('toJSON',{
     }
 } )
 
-
+*/
 
 module.exports = mongoose.model('Blog',blogSchema)
 
