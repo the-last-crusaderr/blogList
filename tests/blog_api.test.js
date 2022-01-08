@@ -4,6 +4,8 @@ const app = require('../app')
 
 const api = supertest(app)
 
+describe('testing for get all function',() => {
+
 test ('blogs are returned as json',async () => {
 
     await api.get('/api/blogs')
@@ -35,6 +37,50 @@ test ('testing for unique identifier in the blog object',async () => {
 
 },1000000)
 
+
+})
+
+
+
+describe('testing for get funcion with id', () => {
+
+    
+    test ('testing for id come back with get Id request',async () => {
+
+    let data = await api.get('/api/blogs/61d4785391d0997da49365d0')
+
+    expect(data.body[0]._id).toBe('61d4785391d0997da49365d0')
+
+    })
+
+})
+
+
+
+describe('testing for delete function', () => {
+
+    test('testing for deletion statusCode',async () => {
+
+        await api.delete('/api/blogs/61d8740173d2e37b1d2fb8f3').expect(204)
+
+
+
+
+    },1000000)
+
+
+})
+
+
+
+
+
+
+
+
+
+
+describe('testing for post request',  () =>   {
 
 test ('testing for post request in the api',async () => {
 
@@ -72,6 +118,9 @@ test ('when the title and url are missing from the post request', async () => {
 
 
 })
+
+})
+
 
 
 

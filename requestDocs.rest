@@ -2,6 +2,10 @@ GET http://localhost:3001/api/blogs
 
 ###
 
+GET http://localhost:3001/api/blogs/61d4785391d0997da49365d0
+
+###
+
 POST http://localhost:3001/api/blogs 
 Content-Type: application/json
 
@@ -11,3 +15,7 @@ Content-Type: application/json
   "url": "Not on internet",
   "likes": "134"
 }
+
+###
+
+DELETE http://localhost:3001/api/blogs/61d87234d90f3b3073d0efe0

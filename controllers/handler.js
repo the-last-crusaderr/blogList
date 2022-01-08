@@ -7,6 +7,14 @@ router.get('/', async (request, response) => {
     let blogs = await Blog.find({})
     return response.json(blogs)
   })
+
+
+router.get('/:id',async (request,response) => {
+
+  const data = await Blog.find({"_id":request.params.id})
+
+  response.json(data)
+})  
   
 
 router.post('/',async (request, response) => {
@@ -20,6 +28,16 @@ router.post('/',async (request, response) => {
     const data = await blog.save()
     response.json(data)
   })
+
+
+router.delete('/:id',async (request,response) => {
+
+   await Blog.findOneAndRemove({"_id":request.params.id})
+
+  response.status(204)
+
+})
+
   
 
 
